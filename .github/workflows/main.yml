@@ -12,5 +12,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
-      - run: zip -j index.zip ./index.html
+      - run: ls
+      - run: zip -qq -r ./index.zip ./index.js
       - run: aws lambda update-function-code --function-name=gene-new-lambda --zip-file=fileb://index.zip
